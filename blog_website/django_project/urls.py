@@ -20,5 +20,7 @@ from django.urls import path, include  # new
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("accounts/", include("django.contrib.auth.urls")), # Added for LoginView class for implementing log in
+    path("accounts/", include("accounts.urls")), # Added for the sign up feature
     path("", include("blog.urls")),
 ]

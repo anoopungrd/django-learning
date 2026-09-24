@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "blog",  # new
+    "blog",  # new app for blog website
+    "accounts", # added for sign up functionality
 ]
 
 MIDDLEWARE = [
@@ -117,3 +118,5 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]  # new project-level static folder added
+LOGIN_REDIRECT_URL = "home" # user will be redirected to the “home” template after log in
+LOGOUT_REDIRECT_URL = "home" # user will be redirected to the “home” template after log out

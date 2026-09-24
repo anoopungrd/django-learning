@@ -20,6 +20,21 @@
 				</div>
 				<!-- end new HTML... -->
 			</header>
+			<!-- start new HTML for updated home page... -->
+			{% if user.is_authenticated %}
+			<p>Hi {{ user.username }}!</p>
+			<!-- Added for the log out button and functionality start -->
+			<form action="{% url 'logout' %}" method="post">
+				{% csrf_token %}
+				<button type="submit">Log Out</button>
+			</form>
+			<!-- Added for the log out button and functionality end -->
+			{% else %}
+			<p>You are not logged in.</p>
+			<a href="{% url 'login' %}">Log In</a> |
+			<a href="{% url 'signup' %}">Sign Up</a>
+			{% endif %}
+			<!-- end new HTML for updated home page... -->
 			{% block content %}
 			{% endblock content %}
 		</div>
